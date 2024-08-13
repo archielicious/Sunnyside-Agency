@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/ico" sizes="32x32" href="./images/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Sunnyside agency landing page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+      body {
+          font-family: "Barlow", sans-serif;
+      }
+      .logo{
+          font-family: "Fraunces", sans-serif;
+      }
+      .down-arrow{
+          top:50%;
+          transform: translateY(-25%);
+      }
+      @media only screen and (max-width: 767px){
+          .dummy-content{
+              aspect-ratio: 1 / 1;
+              height: auto;
+              justify-content: center;
+              display: flex;
+              flex-direction: column;
+          }
+      }
+      @media only screen and (max-width: 992px){
+          .dummy{
+              width: 60%;
+          }
+      }
+      @media only screen and (min-width: 992px){
+          .dummy{
+              width: 80%;
+          }
+      }
+      @media only screen and (max-width: 991px){
+          .btn-contact{
+              background-color: hsl(51, 100%, 49%);
+              margin-right: 0.75rem;
+              width: fit-content;
+              border-radius: 3%;
+          }
+      }
+      .text-overlay{
+          transform: translate(-50%, 20%);
+          padding: 0.75rem;
+          padding-top: 0px;
+      }
+      @media only screen and (min-width: 300px) and (max-width: 400px){
+          .text-overlay{
+              width: 100%;
+          }
+      }
+      @media only screen and (min-width: 401px) and (max-width: 575px){
+          .text-overlay{
+              width: 75%;
+          }
+      } @media only screen and (min-width: 576px) and (max-width: 767px){
+          .text-overlay{
+              width: 65%;
+          }
+      }
+      @media only screen and (min-width: 768px) and (max-width: 1085px){
+          .text-overlay{
+              width: 73%;
+          }
+      }
+      @media only screen and (min-width: 1086px){
+          .text-overlay{
+              width: 65%;
+          }
+      }
+      /* Ensure dropdown menu is positioned over the header */
+      .dropdown-bubble {
+          position: relative; /* Ensure that dropdown menu is positioned relative to this container */
+      }
+
+      .dropdown-bubble .dropdown-menu {
+          position: absolute; /* Position the dropdown menu absolutely within the .dropdown-bubble container */
+          margin-top: 1rem; /* Space from the button */
+          z-index: 1050; /* Ensure dropdown is above other content */
+          left: -7.5rem; /* Adjust this value to move the dropdown slightly to the left */
+      }
+
+      /* Adjust the positioning of the dropdown menu arrow */
+      .dropdown-bubble .dropdown-menu:before,
+      .dropdown-bubble .dropdown-menu:after {
+          content: ' ';
+          display: block;
+          border-style: solid;
+          border-width: 0 .5rem .8rem .5rem;
+          border-color: transparent;
+          position: absolute;
+          left: 8rem; /* Adjust this value to align with the dropdown */
+      }
+
+      .dropdown-bubble .dropdown-menu:before {
+          top: -.8rem;
+          border-bottom-color: rgba(0,0,0,0.5);
+      }
+
+      .dropdown-bubble .dropdown-menu:after {
+          top: -.7rem;
+          border-bottom-color: #fff;
+      }
+
+      /* Ensure dropdown only shows on smaller screens */
+      @media (max-width: 991px) {
+          .d-lg-none {
+              display: block !important;
+          }
+          .d-none.d-lg-flex {
+              display: none !important;
+          }
+      }
+
+      .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
+          border-color: transparent;
+      }
+      /* Target the custom row */
+      .custom-row {
+          display: flex;
+          flex-wrap: wrap;
+      }
+
+      /* Target the custom column */
+      .custom-col {
+          display: flex;
+          /*flex: 1 1 0;*/
+          margin-top: 4rem;
+          margin-bottom: 4rem;
+      }
+
+      /* Ensure custom card content stretches equally */
+      .custom-card {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex: 1;
+          padding: 1rem;
+      }
+
+      /* Ensure card body uses Flexbox to center content */
+      .custom-card .card-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          flex: 1;
+      }
+
+      /* Adjust card-text margins */
+      .custom-card .card-text {
+          margin-top: 2rem; /* Reduced margin */
+          margin-bottom: 2rem; /* Reduced margin */
+      }
+
+      /* Ensure image styling is consistent */
+      .custom-card .display-pic img {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 100%;
+      }
+
+      /* Remove default margins from card-title */
+      .custom-card .card-title {
+          margin: 0; /* Remove default margins */
+      }
+
+      /* Optional: Add spacing for card titles */
+      .custom-card .card-title.logo {
+          margin-top: 1rem;
+      }
+
+      @media only screen and (min-width: 1080px){
+          .text-overlay{
+              transform: translate(-50%, 60%);
+          }
+      }
+      .main-logo{
+          font-weight: 700;
+      }
+      .extra-font {
+        font-weight: 900;
+      }
+      .content-para {
+        font-weight: 600;
+      }
+      /*.credit-link{*/
+      /*    color: crimson;*/
+      /*}*/
+  </style>
+</head>
+<body >
+
+<div class="container-fluid g-0" style="overflow-x: hidden;">
+    <div class="nav-bar">
+        <nav class="navbar navbar-expand-lg" style="background-color: #3DBEFF;">
+            <div class="container-fluid">
+                <a class="navbar-brand logo text-white main-logo">sunnyside</a>
+
+                <!-- Dropdown for small screens -->
+                <div class="dropdown dropdown-bubble d-lg-none">
+                    <button id="dLabel" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn ">
+<!--                        <span class="navbar-toggler-icon" ></span>-->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </button>
+
+                    <div class="dropdown-menu text-end" aria-labelledby="dLabel">
+                        <a class="dropdown-item" href="#" style="opacity: 70%">About</a>
+                        <a class="dropdown-item" href="#" style="opacity: 70%">Services</a>
+                        <a class="dropdown-item" href="#" style="opacity: 70%">Projects</a>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn logo btn-contact dropdown-item">Contact</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Existing navbar for larger screens -->
+                <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link text-white" href="#">About</a>
+                        <a class="nav-link text-white" href="#">Services</a>
+                        <a class="nav-link text-white" href="#">Projects</a>
+                        <button type="button" class="btn btn-light logo btn-contact">Contact</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </nav>
+
+    </div>
+    <div class="header-banner d-flex flex-column justify-content-center align-items-center"  style="background-color: #3DBEFF; position: relative;">
+            <div class="header-text-img d-flex flex-column justify-content-center align-items-center" >
+                <h1 class="logo text-white" style="font-weight: 900; margin-top: 4rem;">WE ARE CREATIVES</h1>
+                <img src="./images/icon-arrow-down.svg" alt="down-arrow" class="img-fluid down-arrow" style="position: absolute;">
+            </div>
+            <img src="./images/desktop/image-header.jpg" alt="orange" class="img-fluid">
+    </div>
+
+    <div class="main" style="width: 100%; padding: 0;">
+        <div class="row flex-column-reverse flex-md-row" style="width: 100%; margin: 0;">
+            <div class="dummy-content col-12 col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-center" style="">
+                <div class="dummy text-start pt-2" style="position: relative;">
+                    <h2 class="logo">Transform your brand</h2>
+                    <p style="opacity: 70%" class="content-para">We are a full-service creative agency specializing in helping brands grow fast. Engaging your clients through compelling visuals that do most of the marketing for you.</p>
+                    <p style="font-weight: 700;" >LEARN MORE</p>
+                    <div style="background-color: hsl(51, 100%, 49%); width: 6rem; height: 0.5rem; border-radius: 10%; position: absolute; top: 90%; opacity: 20%"></div>
+                </div>
+            </div>
+            <div class=" col-12 col-sm-12 col-md-6 d-flex justify-content-center align-items-center p-0">
+                <img src="./images/desktop/image-transform.jpg" alt="egg" class="img-fluid" style="width: 100%; height: auto;">
+            </div>
+        </div>
+        <div class="row" style="width: 100%; margin: 0;">
+            <div class="col-12 col-sm-12 col-md-6 d-flex justify-content-center align-items-center p-0">
+                <img src="./images/desktop/image-stand-out.jpg" alt="tumbler" class="img-fluid" style="width: 100%; height: auto;">
+            </div>
+            <div class=" dummy-content  col-12 col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-center" style="">
+                <div class="dummy text-start pt-2" style="position: relative;">
+                    <h2 class="logo">Stand out to the right audience</h2>
+                    <p style="opacity: 70%" class="content-para">Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places.</p>
+                    <p style="font-weight: 700;" >LEARN MORE</p>
+                    <div style="background-color: hsl(7, 99%, 70%); width: 6rem; height: 0.5rem; border-radius: 10%; position: absolute; top: 90%; opacity: 20%"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="width: 100%; margin: 0;">
+            <div class="col-12 col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-center p-0" style="position: relative; padding-left: 0; padding-right: 0;">
+                <img src="./images/desktop/image-graphic-design.jpg" alt="cherry" class=" img-fluid" style="width: 100%; height: auto;">
+                <div class="text-overlay" style=" color: rgba(0, 0, 0, 0.5); position: absolute; top: 50%; left: 50%;  text-align: center;">
+                    <h6 class="logo extra-font">Graphic design</h6>
+                    <p  class="content-para">Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 d-flex justify-content-center align-items-center p-0" style="position: relative; padding-left: 0; padding-right: 0;">
+                <img src="./images/desktop/image-photography.jpg" alt="orange" class="img-fluid" style="width: 100%; height: auto;">
+                <div class="text-overlay" style="color: rgba(0, 0, 0, 0.5); position: absolute; top: 50%; left: 50%;  text-align: center; ">
+                    <h6 class="logo extra-font">Photography</h6>
+                    <p class="content-para">Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="last">
+
+        <div class="testimonials" style="margin-top: 4rem; margin-bottom: 4rem;">
+            <h4 class="text-center logo" style="margin-top: 4rem; margin-bottom: 4rem; opacity: 40%;">CLIENT TESTIMONIALS</h4>
+
+            <div class="custom-row row" style="margin-top: 4rem; margin-bottom: 4rem;">
+                <div class="custom-col col-12 col-sm-12 col-md-4" style="margin-top: 4rem; margin-bottom: 4rem;">
+                    <div class="text-center custom-card" style="padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center align-items-center my-2">
+                            <img src="./images/image-emily.jpg" alt="display_pic" class="img-fluid" style="width: 4rem; height: 4rem; border-radius: 100%">
+                        </div>
+                        <div class="card-body p-2 d-flex flex-column justify-content-center align-items-center">
+                            <p class="card-text text-center" style="width: 90%; margin-top: 2rem; margin-bottom: 2rem; opacity: 70%">We put our trust in sunnyside and they delivered, making sure our needs were met and deadlines were always hit.</p>
+                            <h3 class="card-title logo">Emily R.</h3>
+                            <h6 class="card-title" style="opacity: 40%;">Marketing Director</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-col col-12 col-sm-12 col-md-4" style="margin-top: 4rem; margin-bottom: 4rem;">
+                    <div class="text-center custom-card" style="padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center align-items-center my-2">
+                            <img src="./images/image-thomas.jpg" alt="display_pic" class="img-fluid" style="width: 4rem; height: 4rem; border-radius: 100%">
+                        </div>
+                        <div class="card-body p-2 d-flex flex-column justify-content-center align-items-center">
+                            <p class="card-text text-center" style="width: 90%; margin-top: 2rem; margin-bottom: 2rem; opacity: 70%">Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.</p>
+                            <h3 class="card-title logo">Thomas S.</h3>
+                            <h6 class="card-title" style="opacity: 40%;">Chief Operating Officer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-col col-12 col-sm-12 col-md-4" style="margin-top: 4rem; margin-bottom: 4rem;">
+                    <div class="text-center custom-card" style="padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center align-items-center my-2">
+                            <img src="./images/image-jennie.jpg" alt="display_pic" class="img-fluid" style="width: 4rem; height: 4rem; border-radius: 100%">
+                        </div>
+                        <div class="card-body p-2 d-flex flex-column justify-content-center align-items-center">
+                            <p class="card-text text-center" style="width: 90%; margin-top: 2rem; margin-bottom: 2rem; opacity: 70%">Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!</p>
+                            <h3 class="card-title logo">Jennie F.</h3>
+                            <h6 class="card-title" style="opacity: 40%;">Business Owner</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="container-fluid">
+        <div class="foot-banner">
+    </div>
+        <div class="row">
+            <div class="col-6 col-md-3 m-0 p-0">
+                <img src="./images/desktop/image-gallery-milkbottles.jpg" alt="milkbottles" class="img-fluid">
+            </div>
+            <div class="col-6 col-md-3 m-0 p-0">
+                <img src="./images/desktop/image-gallery-cone.jpg" alt="ice-cream cone" class="img-fluid">
+            </div>
+            <div class="col-6 col-md-3 m-0 p-0">
+                <img src="./images/desktop/image-gallery-orange.jpg" alt="orange cookie" class="img-fluid">
+            </div>
+            <div class="col-6 col-md-3 m-0 p-0">
+                <img src="./images/desktop/image-gallery-sugarcubes.jpg" alt="sugarcube" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="foot pt-2" style="background-color: #95D5C7">
+        <h2 class="text-center mt-3 logo main-logo" style="opacity: 50%">sunnyside</h2>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="p-3">
+                <p style="opacity: 50%">About</p>
+            </div>
+            <div class="p-3">
+                <p style="opacity: 50%">Services</p>
+            </div>
+            <div class="p-3">
+                <p style="opacity: 50%">Projects</p>
+            </div>
+        </div>
+        <div class="icons d-flex justify-content-center align-items-center pb-3">
+            <div class="p-2" style="opacity: 50%">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg>
+            </div>
+            <div class="p-2" style="opacity: 50%">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                </svg>
+            </div>
+            <div class="p-2" style="opacity: 50%">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                </svg>
+            </div>
+            <div class="p-2" style="opacity: 50%">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0"/>
+                </svg>
+            </div>
+        </div>
+<!--        <div class="attribution d-flex justify-content-center text-center">-->
+<!--            <p style="opacity: 50%;">-->
+<!--            Challenge by <a class="credit-link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.-->
+<!--            Coded with-->
+<!--                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="tomato" class="bi bi-balloon-heart-fill" viewBox="0 0 16 16">-->
+<!--                    <path fill-rule="evenodd" d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2 2 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386"/>-->
+<!--                </svg>-->
+<!--                by <a class="credit-link" href="https://www.github.com/archielicious">Archishman Dash</a>.-->
+<!--            </p>-->
+<!--        </div>-->
+    </div>
+</div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownButton = document.querySelector('#dLabel');
+        const closeIcon = document.querySelector('.bi-x');
+        const barIcon = document.querySelector('.bi-list');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        // Function to toggle icons
+        function toggleIcons() {
+            if (document.querySelector('.dropdown-menu.show')) {
+                closeIcon.style.display = 'block';
+                barIcon.style.display = 'none';
+            } else {
+                closeIcon.style.display = 'none';
+                barIcon.style.display = 'block';
+            }
+        }
+        toggleIcons();
+        // Event listener for menu toggle
+        dropdownButton.addEventListener('click', toggleIcons);
+
+        // Handle menu closing (clicking outside)
+        document.addEventListener('click', function(event) {
+            if (!dropdownButton.contains(event.target) && !document.querySelector('.dropdown-menu').contains(event.target)) {
+                closeIcon.style.display = 'none';
+                barIcon.style.display = 'block';
+            }
+        });
+        // Handle menu item click
+        dropdownMenu.addEventListener('click', function(event) {
+            if (event.target.classList.contains('dropdown-item') || event.target.closest('.dropdown-item')) {
+                closeIcon.style.display = 'none';
+                barIcon.style.display = 'block';
+            }
+        });
+    });
+</script>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</html>
